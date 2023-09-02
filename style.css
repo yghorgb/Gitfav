@@ -1,0 +1,184 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto Mono', sans-serif;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  padding: 11rem;
+}
+
+#app {
+  max-width: 112rem;
+  margin: 0 auto;
+}
+
+.hide {
+  visibility:hidden;
+  opacity: 0;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8.7rem;
+  height: 4.8rem;
+}
+
+.logo-container{
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+
+}
+
+.logo-container span {
+  font-size: 3.6rem;
+  line-height: 2.4rem;
+  font-weight: 700;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+}
+
+.search-container input {
+  width: 42rem;
+  height: 4.8rem;
+  padding: 1.6rem;
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+
+  border: none;
+  border-radius: .5rem;
+  background-color: #06181C;
+  color: #7C7C8A;
+}
+
+.search-container button {
+  padding: 1.2rem 3.2rem;
+  border: none;
+  border-radius: .5rem;
+
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  background-color: #065E7C;
+  color: #fff;
+  transition: background .5s ;
+  cursor: pointer;
+}
+
+.search-container button:hover {
+  background-color: #fff;
+  color: #065E7C;
+}
+
+table {
+  width: 112rem;
+  border-collapse: collapse;
+  border: 1px solid #4A808C;
+}
+
+table thead {
+  background-color: #092D38;
+  font-size: 2rem;
+  line-height: 3.2rem;
+  text-align: left;
+}
+
+thead th{
+  padding: 1.6rem 4rem;
+}
+
+
+table td{
+  padding: 2.4rem 2.4rem 2.4rem 4rem;
+}
+
+td.user {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+td.user a{
+  text-decoration: none;
+  color: #E1E1E6;
+  cursor: pointer;
+}
+
+td.user a p {
+  font-size: 2rem;
+  line-height: 3.2rem;
+  font-weight: 700;
+}
+
+td.user a span {
+  font-size: 2rem;
+  line-height: 3.2rem;
+  font-weight: 400;
+}
+
+td.user img {
+  width: 5.6rem;
+  height: 5.6rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+tr td {
+  font-size: 2rem;
+  line-height: 3.2rem;
+  font-weight: 400;
+}
+
+td button {
+  border: none;
+  background: none;
+  color: #F75A68;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #06181C;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #06161B80;
+}
+
+.no-favs {
+  width: 112rem;
+  height: 62.4rem;
+  background-color: #030b0d;
+  color: #4E5455;
+
+  font-size: 4rem;
+  line-height: 2.4rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6rem;
+  border-radius: 0 0 1rem 1rem;
+}
+
+.no-favs img {
+  width: 13.2rem;
+  height: 13.2rem;
+}
+
