@@ -28,25 +28,44 @@ export class GithubView extends GithubFavorites {
   constructor(root) {
     super(root)
     this.tbody = document.querySelector('tbody')
-    this.idleScreen()
+    this.listUser()
   }
 
   bindEventListener () {
     const btnFavorites = document.getElementById("btn-favorites")
-
+    
     btnFavorites.addEventListener('click', () => {
       this.addUser()
     })
   }
 
-  async addUser () {
+  async addUser () {   
     const user = await this.load()
     this.createRow(user)
+    const users = JSON.parse(localStorage.getItem("users")) || []
+    users.push(user)
+    localStorage.setItem("users", JSON.stringify(users))
     this.idleScreen()
   }
 
+  listUser () {
+    const users = JSON.parse(localStorage.getItem("users")) || []
+    users.forEach(user => {
+      this.createRow(user)
+    });
+    this.idleScreen()
+  }
 
-  createRow (user) {
+  deleteUser(event) {
+    const row = event.target.closest('tr')
+    this.deleteRow(row.id)
+    let users = JSON.parse(localStorage.getItem("users"))
+    users = users.filter((user) => user.id !== Number(row.id))
+    localStorage.setItem("users", JSON.stringify(users))
+    this.idleScreen()
+  }
+
+  createRow(user) {
     const tr = document.createElement("tr")
 
     tr.innerHTML = `
@@ -64,10 +83,22 @@ export class GithubView extends GithubFavorites {
         ${user.followers}
       </td>
       <td>
-        <button>Remover</button>
+        <button id="btn-remove-${user.id}">Remover</button>
       </td>
     `
+    tr.setAttribute("id", user.id)
     this.tbody.append(tr)
+
+    const btnRemove = document.getElementById(`btn-remove-${user.id}`)
+
+    btnRemove.addEventListener('click', (event) => {
+      this.deleteUser(event)
+    })
+  }
+
+  deleteRow(id) {
+    const deletedUser = document.getElementById(id)
+    deletedUser.remove()
   }
 
   idleScreen () {

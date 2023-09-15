@@ -4,7 +4,8 @@ export class GithubAPI {
 
     return fetch(endpoint)
       .then(response => response.json())
-      .then(({login, name, public_repos, followers}) => ({
+      .then(({id, login, name, public_repos, followers}) => ({
+        id,
         login,
         name,
         public_repos,
